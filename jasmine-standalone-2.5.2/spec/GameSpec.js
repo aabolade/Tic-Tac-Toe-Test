@@ -24,13 +24,6 @@
       expect(game.currentTurn()).toEqual(game.player1)
     })
 
-    it("playing calls methods on the contents of the grid's cell", function() {
-      gridIndex = 0;
-      game.playTurn(gridIndex);
-      expect(game.grid.selectCell).toHaveBeenCalledWith(gridIndex)
-      console.log(game.grid.selectCell())
-    })
-
     it("after a turn is made it switches the player", function() {
       game.playTurn(0);
       expect(game.currentTurn()).not.toEqual(game.player1)
@@ -38,7 +31,7 @@
 
     it("After a turn, the cell contents equal the player id", function() {
       game.playTurn(0);
-      expect(game.grid.selectCell(0).contents).toEqual(game.currenTurn().id)
+      expect(game.grid.selectCell).toHaveBeenCalledWith(0, game.player1.id)
     })
 
 

@@ -12,7 +12,7 @@
   }
 
   Game.prototype.playTurn = function(index) {
-    this.grid.selectCell(index);
+    this.grid.selectCell(index, this.currentTurn().id);
     this.changeTurns();
   }
 

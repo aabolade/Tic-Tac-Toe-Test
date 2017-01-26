@@ -20,5 +20,10 @@
       cell.changeContents("Nought");
       expect(cell.contents).toEqual("Nought")
     })
+
+    it("a cell can only be assigned contents once", function() {
+      cell.changeContents("Nought");
+      expect(function() {cell.changeContents("Cross")}).toThrow(new Error("This cell has already been selected"))
+    })
   });
 })();
