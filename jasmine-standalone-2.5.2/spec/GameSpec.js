@@ -5,6 +5,7 @@
     beforeEach(function() {
       game = new Game();
       spyOn(game.grid, 'selectCell')
+      spyOn(game.grid, 'checkForSpaces').and.returnValue(true)
     })
 
     it("has two players which are Player objects", function() {
@@ -33,6 +34,18 @@
       game.playTurn(0);
       expect(game.grid.selectCell).toHaveBeenCalledWith(0, game.player1.id)
     })
+
+    it("checks for spaces before each turn", function() {
+      game.playTurn(0);
+      expect(game.grid.checkForSpaces).toHaveBeenCalled()
+    })
+
+    it("throws an error if there are no spaces", function() {
+      game.grid.checkForSpaces.and.returnValue(false);
+      expect(function() {game.playTurn(0)}).toThrow(new Error("Draw"))
+    })
+
+
 
 
   })

@@ -30,6 +30,21 @@
       expect(grid.cells[0].contents).toEqual("id")
     })
 
+    describe("checking if the grid is full", function() {
+
+    })
+    it("the grid is full after at most nine moves", function() {
+      for(count=0;count<9;count++) {
+        grid.selectCell(count, "id")
+      }
+
+      expect(grid.checkForSpaces()).toBeFalsy()
+    })
+
+    it("is not full before nine moves", function() {
+      expect(grid.checkForSpaces()).toBeTruthy()
+    })
+
 
   })
 })();

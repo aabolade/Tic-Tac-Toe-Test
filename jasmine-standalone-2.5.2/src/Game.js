@@ -12,6 +12,9 @@
   }
 
   Game.prototype.playTurn = function(index) {
+    if (!this.grid.checkForSpaces()) {
+      throw new Error("Draw")
+    };
     this.grid.selectCell(index, this.currentTurn().id);
     this.changeTurns();
   }
