@@ -25,5 +25,12 @@
       game.playTurn(gridIndex);
       expect(game.grid.selectCell).toHaveBeenCalledWith(gridIndex)
     })
+
+    it("after a turn is made it switches the player", function() {
+      game.playTurn(0);
+      expect(game.currentTurn()).not.toEqual(game.player1)
+    })
+
+
   })
 })();
