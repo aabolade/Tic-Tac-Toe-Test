@@ -10,5 +10,9 @@
       expect(game.player1).toBeDefined();
       expect(game.player2).toBeDefined();
     })
+
+    it("starts with player 1", function() {
+      expect(game.currentTurn()).toEqual(game.player1)
+    })
   })
 })();

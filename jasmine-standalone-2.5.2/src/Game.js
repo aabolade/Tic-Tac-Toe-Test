@@ -6,6 +6,10 @@
 
   }
 
+  Game.prototype.currentTurn = function() {
+    return this.player1;
+  }
+
   exports.Game = Game;
 
 
