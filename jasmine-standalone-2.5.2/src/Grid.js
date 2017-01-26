@@ -11,6 +11,10 @@
     }
   }
 
+  Grid.prototype.selectCell = function(index) {
+    return this.cells[index]
+  }
+
   exports.Grid = Grid;
 
 })(this);

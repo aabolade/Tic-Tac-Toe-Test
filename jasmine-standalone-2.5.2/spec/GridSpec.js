@@ -24,6 +24,10 @@
       expect(grid.cells[0]).not.toEqual(grid.cells[1])
     })
 
+    it("has a method for selecting a cell in its array", function() {
+      expect(grid.selectCell(0)).toEqual(grid.cells[0])
+    })
+
 
   })
 })();
