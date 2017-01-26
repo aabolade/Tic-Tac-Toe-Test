@@ -4,12 +4,11 @@
 
     this.cells = [];
 
-    for(x=0; x<3; x++) {
-      for(y=0; y<3; y++) {
+    for(x=1; x<4; x++) {
+      for(y=1; y<4; y++) {
         this.cells.push(new Cell(x,y));
       }
     }
-
   }
 
   exports.Grid = Grid;
