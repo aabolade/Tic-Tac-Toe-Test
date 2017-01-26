@@ -24,8 +24,10 @@
       expect(grid.cells[0]).not.toEqual(grid.cells[1])
     })
 
-    it("has a method for selecting a cell in its array", function() {
-      expect(grid.selectCell(0)).toEqual(grid.cells[0])
+    it("passes an id to the cell", function() {
+      spyOn(grid, 'cells').and.returnValue([{xPostion: 1, yPosition: 1, contents: "Empty"}])
+      grid.selectCell(0, "id")
+      expect(grid.cells[0].contents).toEqual("id")
     })
 
 

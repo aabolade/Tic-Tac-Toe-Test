@@ -6,12 +6,8 @@
     this.contents = "Empty";
   }
 
-  Cell.prototype.makeNought = function() {
-    this.contents = "Nought";
-  }
-
-  Cell.prototype.makeCross = function() {
-    this.contents = "Cross";
+  Cell.prototype.changeContents = function(id) {
+    this.contents = id;
   }
 
   exports.Cell = Cell;

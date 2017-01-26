@@ -11,8 +11,8 @@
     }
   }
 
-  Grid.prototype.selectCell = function(index) {
-    return this.cells[index]
+  Grid.prototype.selectCell = function(index,id) {
+    this.cells[index].changeContents(id);
   }
 
   exports.Grid = Grid;
