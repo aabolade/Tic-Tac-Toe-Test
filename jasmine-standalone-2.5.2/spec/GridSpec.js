@@ -20,6 +20,10 @@
       })
     })
 
-    
+    it("Each element of cells array must have a unique cell", function() {
+      expect(grid.cells[0]).not.toEqual(grid.cells[1])
+    })
+
+
   })
 })();

@@ -4,8 +4,10 @@
 
     this.cells = [];
 
-    for(count=0; count<9; count++) {
-      this.cells.push(new Cell(1,1));
+    for(x=0; x<3; x++) {
+      for(y=0; y<3; y++) {
+        this.cells.push(new Cell(x,y));
+      }
     }
 
   }
