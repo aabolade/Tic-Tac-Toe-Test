@@ -8,8 +8,12 @@
     })
 
     it("should have an x and y position", function() {
-      expect(cell.xPosition).toBeDefined()
-      expect(cell.yPosition).toBeDefined()
+      expect(cell.xPosition).toBeDefined();
+      expect(cell.yPosition).toBeDefined();
     })
-  })
+
+    it("should be initialised with empty content", function() {
+      expect(cell.content).toEqual("empty");
+    });
+  });
 })();
