@@ -22,7 +22,7 @@
 
     it("playing calls methods on the contents of the grid's cell", function() {
       gridIndex = 0;
-      game.selectCell(gridIndex);
+      game.playTurn(gridIndex);
       expect(game.grid.selectCell).toHaveBeenCalledWith(gridIndex)
     })
   })

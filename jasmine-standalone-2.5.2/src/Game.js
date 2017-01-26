@@ -10,8 +10,8 @@
     return this.player1;
   }
 
-  Game.prototype.selectCell = function(index) {
-    
+  Game.prototype.playTurn = function(index) {
+    this.grid.selectCell(index)
   }
 
   exports.Game = Game;
