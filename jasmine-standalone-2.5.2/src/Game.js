@@ -4,7 +4,7 @@
     this.player1 = new Player("Nought");
     this.player2 = new Player("Cross");
     this.players = [this.player1, this.player2];
-    this.grid = new Grid();
+    this.grid = new Grid(this);
   }
 
   Game.prototype.currentTurn = function() {

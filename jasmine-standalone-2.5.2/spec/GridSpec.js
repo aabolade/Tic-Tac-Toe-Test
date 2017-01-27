@@ -3,7 +3,8 @@
     var grid;
 
     beforeEach(function() {
-      grid = new Grid();
+      game = {currentTurn: function() { return "Nought" }}
+      grid = new Grid(game);
     })
 
     it("stores an array", function() {
@@ -43,7 +44,7 @@
       });
     });
 
-    describe("finding a winner", function() {
+    describe("Nought is the winner", function() {
 
       beforeEach(function() {
         grid.selectCell(0,"Nought");
@@ -53,16 +54,26 @@
 
       it("the game ends when a winner is found", function() {
         grid.updateWinningCombinations();
-        expect(function() {grid.checkForWinner()}).toThrow(new Error("Winner"));
+        expect(function() {grid.checkForWinner()}).toThrow(new Error("Nought is the winner"));
       })
     })
 
+    describe("Cross is the winner", function() {
 
+      beforeEach(function() {
+        game = {currentTurn: function() { return "Cross" }}
+        grid = new Grid(game)
+        grid.selectCell(0,"Cross");
+        grid.selectCell(1,"Cross");
+        grid.selectCell(2,"Cross");
+      })
 
-
+      it("the game ends when a winner is found", function() {
+        grid.updateWinningCombinations();
+        expect(function() {grid.checkForWinner()}).toThrow(new Error("Cross is the winner"));
+      });
+    });
 
   });
-
-
 
 })();

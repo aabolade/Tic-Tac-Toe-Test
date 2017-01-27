@@ -1,10 +1,11 @@
 (function(exports) {
 
-  function Grid() {
+  function Grid(game) {
 
     const gridCapacity = 9;
 
     this.cells = [];
+    this.game = game;
     this.spaces = gridCapacity;
 
     for(x=1; x<4; x++) {
@@ -49,7 +50,8 @@
         return arr.indexOf(item) === i;
       });
       if (!unique.includes("Empty") && unique.length === 1) {
-        throw new Error("Winner")
+        console.log(this.game)
+        throw new Error(`${this.game.currentTurn()} is the winner`)
       }
     })
   }
