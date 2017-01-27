@@ -50,8 +50,7 @@
         return arr.indexOf(item) === i;
       });
       if (!unique.includes("Empty") && unique.length === 1) {
-        console.log(this.game)
-        throw new Error(`${this.game.currentTurn()} is the winner`)
+        throw new Error(`${this.game.currentTurn().id} is the winner`)
       }
     })
   }

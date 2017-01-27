@@ -3,7 +3,7 @@
     var grid;
 
     beforeEach(function() {
-      game = {currentTurn: function() { return "Nought" }}
+      game = {currentTurn: function() { return {id: "Nought" } }}
       grid = new Grid(game);
     })
 
@@ -61,7 +61,7 @@
     describe("Cross is the winner", function() {
 
       beforeEach(function() {
-        game = {currentTurn: function() { return "Cross" }}
+        game = {currentTurn: function() { return {id: "Cross"} }}
         grid = new Grid(game)
         grid.selectCell(0,"Cross");
         grid.selectCell(1,"Cross");
