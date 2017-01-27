@@ -13,14 +13,20 @@
 
   Game.prototype.playTurn = function(index) {
     if (!this.grid.checkForSpaces()) {
-      throw new Error("Draw")
+      throw new Error("Draw");
     };
     this.grid.selectCell(index, this.currentTurn().id);
+    this.checkForWinner();
     this.changeTurns();
   }
 
   Game.prototype.changeTurns = function() {
     this.players.reverse();
+  }
+
+  Game.prototype.checkForWinner = function() {
+    this.grid.updateWinningCombinations();
+    this.grid.checkForWinner();
   }
 
   exports.Game = Game;

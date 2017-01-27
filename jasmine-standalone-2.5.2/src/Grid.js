@@ -12,6 +12,15 @@
         this.cells.push(new Cell(x,y));
       }
     }
+
+    this.winningCombinations = [[this.cells[0].contents,this.cells[1].contents,this.cells[2].contents],
+                                [this.cells[3].contents,this.cells[4].contents,this.cells[5].contents],
+                                [this.cells[6].contents,this.cells[7].contents,this.cells[8].contents],
+                                [this.cells[0].contents,this.cells[3].contents,this.cells[6].contents],
+                                [this.cells[1].contents,this.cells[4].contents,this.cells[7].contents],
+                                [this.cells[2].contents,this.cells[5].contents,this.cells[8].contents],
+                                [this.cells[0].contents,this.cells[4].contents,this.cells[8].contents],
+                                [this.cells[2].contents,this.cells[4].contents,this.cells[6].contents]];
   }
 
   Grid.prototype.selectCell = function(index,id) {
@@ -20,7 +29,29 @@
   }
 
   Grid.prototype.checkForSpaces = function() {
-    return  this.spaces > 0;
+    return this.spaces > 0;
+  }
+
+  Grid.prototype.updateWinningCombinations = function() {
+    this.winningCombinations = [[this.cells[0].contents,this.cells[1].contents,this.cells[2].contents],
+                                [this.cells[3].contents,this.cells[4].contents,this.cells[5].contents],
+                                [this.cells[6].contents,this.cells[7].contents,this.cells[8].contents],
+                                [this.cells[0].contents,this.cells[3].contents,this.cells[6].contents],
+                                [this.cells[1].contents,this.cells[4].contents,this.cells[7].contents],
+                                [this.cells[2].contents,this.cells[5].contents,this.cells[8].contents],
+                                [this.cells[0].contents,this.cells[4].contents,this.cells[8].contents],
+                                [this.cells[2].contents,this.cells[4].contents,this.cells[6].contents]];
+  }
+
+  Grid.prototype.checkForWinner = function() {
+    this.winningCombinations.forEach(function(element) {
+      var unique = element.filter(function(item, i, arr) {
+        return arr.indexOf(item) === i;
+      });
+      if (!unique.includes("Empty") && unique.length === 1) {
+        throw new Error("Winner")
+      }
+    })
   }
 
   exports.Grid = Grid;

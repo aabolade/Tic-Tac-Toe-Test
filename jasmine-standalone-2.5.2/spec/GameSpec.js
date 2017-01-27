@@ -5,6 +5,7 @@
     beforeEach(function() {
       game = new Game();
       spyOn(game.grid, 'selectCell')
+      spyOn(game, 'checkForWinner')
       spyOn(game.grid, 'checkForSpaces').and.returnValue(true)
     })
 
@@ -45,6 +46,10 @@
       expect(function() {game.playTurn(0)}).toThrow(new Error("Draw"))
     })
 
+    it("checks for a winner after the move", function() {
+      game.playTurn(0);
+      expect(game.checkForWinner).toHaveBeenCalled()
+    })
 
 
 
