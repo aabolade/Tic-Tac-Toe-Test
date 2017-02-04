@@ -5,6 +5,7 @@
     this.player2 = new Player("X");
     this.players = [this.player1, this.player2];
     this.grid = new Grid(this);
+    this.winner = false;
   }
 
   Game.prototype.currentTurn = function() {
@@ -12,6 +13,7 @@
   }
 
   Game.prototype.playTurn = function(index) {
+    this.checkGameOver();
     this.checkForSpaces();
     this.grid.selectCell(index, this.currentTurn().id);
     this.changeCellDisplay(index);
@@ -38,6 +40,13 @@
   Game.prototype.checkForWinner = function() {
     this.grid.updateWinningCombinations();
     this.grid.checkForWinner();
+  }
+
+  Game.prototype.checkGameOver = function() {
+    if (this.winner === true) {
+      throw new Error("Game over")
+    }
+
   }
 
   exports.Game = Game;

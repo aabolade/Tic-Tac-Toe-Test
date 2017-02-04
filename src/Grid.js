@@ -45,6 +45,8 @@
       if (!unique.includes("Empty") && unique.length === 1) {
         var winner = document.getElementById("winner")
         winner.innerHTML = `${this.game.currentTurn().id} is the winner`
+        this.game.winner = true;
+        throw new Error()
       }
     })
   }
