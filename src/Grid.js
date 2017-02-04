@@ -14,14 +14,7 @@
       }
     }
 
-    this.winningCombinations = [[this.cells[0].contents,this.cells[1].contents,this.cells[2].contents],
-                                [this.cells[3].contents,this.cells[4].contents,this.cells[5].contents],
-                                [this.cells[6].contents,this.cells[7].contents,this.cells[8].contents],
-                                [this.cells[0].contents,this.cells[3].contents,this.cells[6].contents],
-                                [this.cells[1].contents,this.cells[4].contents,this.cells[7].contents],
-                                [this.cells[2].contents,this.cells[5].contents,this.cells[8].contents],
-                                [this.cells[0].contents,this.cells[4].contents,this.cells[8].contents],
-                                [this.cells[2].contents,this.cells[4].contents,this.cells[6].contents]];
+    this.winningCombinations = [];
   }
 
   Grid.prototype.selectCell = function(index,id) {
@@ -50,7 +43,8 @@
         return arr.indexOf(item) === i;
       });
       if (!unique.includes("Empty") && unique.length === 1) {
-        throw new Error(`${this.game.currentTurn().id} is the winner`)
+        var winner = document.getElementById("winner")
+        winner.innerHTML = `${this.game.currentTurn().id} is the winner`
       }
     })
   }

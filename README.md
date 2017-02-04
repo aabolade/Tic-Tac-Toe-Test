@@ -1,5 +1,7 @@
 # Tic Tac Toe Test
 
+[![BuildStatus](https://travis-ci.org/aabolade/Tic-Tac-Toe-Test.svg?branch=master)](https://travis-ci.org/aabolade/Tic-Tac-Toe-Test)
+
 Specifications
 ==============
 
@@ -13,8 +15,8 @@ The rules of tic-tac-toe are as follows:
 * A game is over if a player wins
 * A game is over when all fields are taken
 
-Technologies Used
-=================
+Approach and Technologies used
+==============================
 
 * Code written in Javascript
 * Tests written using Jasmine

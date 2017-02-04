@@ -1,4 +1,9 @@
 button {
   background-color: blue;
   margin: 10px;
+  position: relative;
+}
+
+#button-0, #button-1, #button-3, #button-4, #button-6, #button-7 {
+  float: left;
 }
