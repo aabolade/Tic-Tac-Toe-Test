@@ -23,7 +23,8 @@
 
   Game.prototype.checkForSpaces = function() {
     if (!this.grid.checkForSpaces()) {
-      throw new Error("Draw");
+      var winner = document.getElementById("winner")
+      winner.innerHTML = "Draw!"
     };
   }
 
